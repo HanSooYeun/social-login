@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Workspace</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= yield %>
+<%= link_to '가입(Sign-up)', new_user_path %>
+
+<% unless current_user %>
+  <%= link_to '트위터 로그인', '/auth/twitter' %>
+  <%= link_to '페이스북 로그인', '/auth/facebook' %>
+  <%= link_to '구글 로그인', '/auth/google_oauth2' %>
+  <%#= link_to '카카오 로그인', '/auth/kakao' %>
+<% end %>
+
+<% unless current_user %>
+  <%= link_to '트위터 로그인', '/auth/twitter' %>
+  <%= link_to '페이스북 로그인', '/auth/facebook' %>
+  <%= link_to '구글 로그인', '/auth/google_oauth2' %>
+  <%#= link_to '카카오 로그인', '/auth/kakao' %>
+<% else %>
+  <%= link_to '로그 아웃', '/logout' %>
+<% end %>
+</body>
+</html>

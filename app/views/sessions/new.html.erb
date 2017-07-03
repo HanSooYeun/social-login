@@ -1,0 +1,6 @@
+<h1>First time user with <%= @auth.provider %>?</h1>
+<%= form_tag users_path do  %>
+  <%= email_field_tag :email, nil, placeholder: "Enter your email" %>
+  <%= hidden_field_tag :auth_id, @auth.id %>
+  <%= submit_tag 'Register' %>
+<% end %>
